@@ -1,5 +1,5 @@
 import crel from "crel"
-import {Plugin} from "prosemirror-state"
+import {Plugin, PluginKey} from "prosemirror-state"
 
 import {renderGrouped} from "./menu"
 
@@ -28,6 +28,7 @@ function isIOS() {
 //     out of view.
 export function menuBar(options) {
   return new Plugin({
+    key: new PluginKey('menu'),
     view(editorView) { return new MenuBarView(editorView, options) }
   })
 }
